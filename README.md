@@ -29,4 +29,4 @@ To run app on localhost
 - Under src/main/java, locate 'CoronavirusTrackerApplication.java'. Right click -> Run as -> Java Application.
 - Open localhost:8080
 
-Live demo: https://covid19trackerbymeenu.herokuapp.com/
+Live demo: https://meenu-covid19tracker.herokuapp.com/
