@@ -6,14 +6,15 @@ This application displays real time covid data and has been built using Spring B
 
 Capabilities include:
 
-displays no of total confirmed cases.
-displays no of new confirmed cases.
-displays no of total deaths.
-displays no of new deaths.
-displays no of total recovered cases.
-displays no of new recoveries.
-allows user to search data by inputting country name.
-displays the last data updated date.
+-displays no of total confirmed cases.
+- displays no of new confirmed cases.
+- displays no of total deaths.
+- displays no of new deaths.
+- displays no of total recovered cases.
+- displays no of new recoveries.
+- allows user to search data by inputting country name.
+- sort data in ascending or descending order of cases.
+- displays the last data updated date.
 
 
 
