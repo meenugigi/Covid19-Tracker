@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<style>
+body{
+	background-color:  #e0ebeb;
+	color: #00264d;
+	
+}
+
+.jumbotron{
+background-color:  #00264d;
+color: white;
+height: 280px;
+}
+
+.table {
+color: #00264d;
+}
+
+.image:hover {
+opacity:0.5;
+}
+
+h1.display-4 {
+margin-top: 0px;
+}
+
+
+#date, #showdate {
+font-size: 13px;
+color: gray;
+}
+
+
+</style>
+
+
+
+<body>
+<div class="container">
+<h1>Covid-19 Tracker Application &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+<img th:src="@{/img/arts.png}" width="50px" onclick="home()" class="image"/></h1>
+<p>This application provides Covid-19 statistics across the globe</p>
+
+ 
+<script type="text/javascript">
+    function home() {
+        window.location = "[[@{/}]]";
+    }
+</script>
+<div class="jumbotron">
+    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+    <p class="lead">Total recovery reported till date</p>
+   
+    <br>
+        <span>New recovery reported: </span>
+        <span th:text="${totalNewCases}"></span>
+         <p id="showdate"> Last updated on: 
+        <span id ="date"> </span></p>
+    
+</p>
+
+<script>
+var dateObj = new Date(); 
+dateObj.setDate(dateObj.getDate() - 1);  
+document.getElementById("date").innerHTML =dateObj; 
+</script>
+
+
+</div>
+
+
+    <table class="table">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total recovery reported</th>
+            <th>New Recovery</th>
+          
+        </tr>
+        <tr th:each="locationStatRecovered : ${locationStats}">
+            <td th:text="${locationStatRecovered.state}"></td>
+            <td th:text="${locationStatRecovered.country}"></td>
+            <td th:text="${locationStatRecovered.latestTotalRecovered}">0</td>
+            <td th:text="${locationStatRecovered.diffFromPrevDayRecovered}">0</td>
+           
+        </tr>
+    </table>
+</div>
+
+
+
+</body>
+
+</html>

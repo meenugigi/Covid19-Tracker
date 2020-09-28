@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+
+
+<style>
+
+
+#header, #footer{
+    color: white;
+    height: 80px;
+  font-size: 50px;
+  font-family: Times New Roman;
+  background-color:  #b3cccc;
+  text-align: center; 
+}   
+
+
+#footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+    font-size: 18px;
+   height: 40px;  
+   opacity: 0.6;
+   color: black;
+}
+
+
+body {
+    background-image: url("img/images1.jpg");
+    background-repeat: no-repeat;
+   background-size: cover;
+  
+}
+
+.head {
+color: white;
+ text-align: center;
+
+}
+
+.city {
+  background-color: #b3cccc;
+  color: white;
+ opacity: 0.6;
+  height: 340px;
+  width: 500px;
+   margin-left: 27%;
+  padding: 30px;
+   text-align: center;
+}
+
+.btn{
+	width: 250px;
+	height: 50px;
+	color: white;
+	background-color: #00264d;
+	font-size: 20px;
+}
+
+.btn:hover{
+opacity: 0.7;
+color: white;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+ 
+  
+  .city {
+  color: white;
+ opacity: 0.6;
+  height: 400px;
+  width: 250px;
+   margin-left: 27%;
+  padding: 30px;
+   text-align: center;
+}
+
+.btn{
+	width: 200px;
+	height: 40px;
+	color: white;
+	background-color: #00264d;
+	font-size: 17px;
+}
+
+}
+
+
+</style>
+
+
+<body>
+<div class="container">
+<br>
+<h1 class="head">Covid-19 Tracker Application</h1>
+<p class="head">This application provides Covid-19 statistics across the globe</p>
+
+
+<br>
+<br>
+
+
+<div class="city">
+<input type="button" value="Confirmed Cases" class="btn" id="btnConfirm" onclick="confirmedCases()" /><br><br>
+<input type="button" value="Total Deaths" class="btn" id="btnConfirm" onclick="confirmedDeaths()" /><br><br>
+<input type="button" value="Total Recovered" class="btn" id="btnConfirm" onclick="recovered()" /><br><br>
+<input type="button" value="Search Data by Country" class="btn" id="btnConfirm" onclick="search()" />
+</div>
+
+
+
+<script type="text/javascript">
+    function confirmedCases() {
+        window.location = "[[@{/confirmedcases}]]";
+    }
+</script>
+
+<script type="text/javascript">
+    function confirmedDeaths() {
+        window.location = "[[@{/deaths}]]";
+    }
+</script>
+
+<script type="text/javascript">
+    function search() {
+        window.location = "[[@{/search}]]";
+    }
+</script>
+
+
+<script type="text/javascript">
+    function recovered() {
+        window.location = "[[@{/recovered}]]";
+    }
+</script>
+  
+</div>
+
+<div id="footer">
+  <p>Developed by Meenu Gigi</p>
+</div>
+
+</body>
+
+</html>

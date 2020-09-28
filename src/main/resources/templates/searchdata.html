@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet"/>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<style>
+body{
+background-color: #e0ebeb;
+color: 00264d;
+
+}
+
+.split {
+  height: 518px;
+  width: 33%;
+  position: fixed;
+  z-index: 1;
+  top: 120px;
+  margin-bottom: 25px;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color:  #e0ebeb;
+}
+
+.center {
+  left:33.5%;
+  background-color:  #e0ebeb;
+}
+
+.right {
+  right: 0;
+  background-color:  #e0ebeb;
+  
+}
+
+.centered {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translate(-50%, -1.6%);
+  text-align: center;
+  
+}
+
+
+
+.container {
+margin-top: 10px;
+width: 100%;
+
+}
+
+.btn{
+	height: 40px;
+	color: white;
+	background-color: #00264d;
+	font-size: 18px;
+}
+
+
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 17px;
+}
+
+.image{
+margin-left:1150px;
+margin-top: 1px;
+}
+.image:hover {
+opacity:0.5;
+}
+
+.form-control{
+	height:40px;
+}
+
+
+</style>
+
+
+
+
+<body>
+<div class = "container">
+
+<form action ="/search" class="form-inline">
+<h1>Covid-19 Tracker Application</h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+
+
+
+
+<input type="text" class="form-control" name="country" placeholder="Search by Country" />&nbsp
+
+<button class="btn" value="Search"><i class="fa fa-search"></i></button> &nbsp
+<button class="btn" value="Clear" onclick="clearSearch()" ><i class="fa fa-remove"></i></button>&nbsp
+ 
+ 
+ 
+ <button type="button" class="btn btn-info" onclick="sort()" ><span class="glyphicon glyphicon-sort"></span> Sort</button> 
+ 
+ 
+ 
+ <script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/sort}]]";
+    }
+</script>
+ 
+ <script type="text/javascript">
+    function sort() {
+        window.location = "[[@{/sort}]]";
+    }
+</script>
+ 
+
+ 
+ <img th:src="@{/img/arts.png}" width="35px" onclick="home()" class="image"/>
+
+
+
+  <script type="text/javascript">
+    function home() {
+        window.location = "[[@{/}]]";
+    }
+</script>
+  
+ 
+
+
+
+
+
+
+
+
+<div class="split left">
+  <div class="centered">
+   <table class="table" border="1px">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total Confirmed Cases</th>
+                     
+        </tr>
+        <tr th:each="locationStat : ${data}">
+        
+            <td th:text="${locationStat.state}"></td>
+            <td th:text="${locationStat.country}"></td>
+            <td th:text="${locationStat.todaysCases}">0</td>
+        
+        </tr>
+    </table>
+</div>
+  </div>
+
+
+
+<div class="split center">
+  <div class="centered">
+     <table class="table" border="1px">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total Deaths</th>
+           
+        </tr>
+        <tr th:each="locationStatDeaths : ${datadeaths}">
+            <td th:text="${locationStatDeaths.state}"></td>
+            <td th:text="${locationStatDeaths.country}"></td>
+            <td th:text="${locationStatDeaths.totalDeaths}">0</td>
+          
+        </tr>
+    </table>
+</div>
+  </div>
+
+
+<div class="split right">
+  <div class="centered">
+  <table class="table" border="1px">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total Recovery</th>
+           
+        </tr>
+        <tr th:each="locationStatRecovered : ${datarecovered}">
+            <td th:text="${locationStatRecovered.state}"></td>
+            <td th:text="${locationStatRecovered.country}"></td>
+            <td th:text="${locationStatRecovered.totalRecovered}">0</td>
+          
+        </tr>
+    </table>
+</div>
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+</body>
+
+</html>
