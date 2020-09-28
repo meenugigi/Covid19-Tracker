@@ -14,13 +14,18 @@ displays no of total recovered cases.
 displays no of new recoveries.
 allows user to search data by inputting country name.
 displays the last data updated date.
-Live demo: https://covid19trackerbymeenu.herokuapp.com/
 
 
 
 To run app on localhost
 - Download the zip file.
+- Open Eclipse IDE.
+- Click File -> Import -> (Expand)Maven -> Existing Maven Projects -> Browse -> Finish.
 - Delete system.properties file from the root directory.
 - Navigate to src/main/resources/application.properties.
 - In application.properties file, uncomment the commented lines and comment the last two lines.
-- In pom.xml, uncomment the dependency that corresponds to 'mysql-connector-java' and comment the dependency that corresponds to the 
+- In pom.xml, uncomment the dependency that corresponds to 'mysql-connector-java' and comment the dependency that corresponds to the 'postgresql'.
+- Under src/main/java, locate 'CoronavirusTrackerApplication.java'. Right click -> Run as -> Java Application.
+- Open localhost:8080
+
+Live demo: https://covid19trackerbymeenu.herokuapp.com/
